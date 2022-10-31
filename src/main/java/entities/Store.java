@@ -20,11 +20,11 @@ public class Store {
     @Column(name = "email")
     private String email;
     @OneToMany(mappedBy = "storeByStoreid")
-    private Collection<Departmentmanager> departmentmanagersById;
-    @OneToMany(mappedBy = "storeByStoreid")
-    private Collection<Promotion> promotionsById;
-    @OneToMany(mappedBy = "storeByStoreid")
-    private Collection<Storeadmin> storeadminsById;
+    private Collection<Departmentmanager> departmentmanagers;
+    @OneToMany(mappedBy = "store")
+    private Collection<Promotion> promotions;
+    @OneToMany(mappedBy = "store")
+    private Collection<Storeadmin> storeadmins;
 
     public Integer getId() {
         return id;
@@ -82,27 +82,27 @@ public class Store {
         return result;
     }
 
-    public Collection<Departmentmanager> getDepartmentmanagersById() {
-        return departmentmanagersById;
+    public Collection<Departmentmanager> getDepartmentmanagers() {
+        return departmentmanagers;
     }
 
-    public void setDepartmentmanagersById(Collection<Departmentmanager> departmentmanagersById) {
-        this.departmentmanagersById = departmentmanagersById;
+    public void setDepartmentmanagers(Collection<Departmentmanager> departmentmanagersById) {
+        this.departmentmanagers = departmentmanagersById;
     }
 
-    public Collection<Promotion> getPromotionsById() {
-        return promotionsById;
+    public Collection<Promotion> getPromotions() {
+        return promotions;
     }
 
-    public void setPromotionsById(Collection<Promotion> promotionsById) {
-        this.promotionsById = promotionsById;
+    public void setPromotions(Collection<Promotion> promotionsById) {
+        this.promotions = promotionsById;
     }
 
-    public Collection<Storeadmin> getStoreadminsById() {
-        return storeadminsById;
+    public Collection<Storeadmin> getStoreadmins() {
+        return storeadmins;
     }
 
-    public void setStoreadminsById(Collection<Storeadmin> storeadminsById) {
-        this.storeadminsById = storeadminsById;
+    public void setStoreadmins(Collection<Storeadmin> storeadminsById) {
+        this.storeadmins = storeadminsById;
     }
 }

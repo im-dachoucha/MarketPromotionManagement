@@ -13,9 +13,9 @@ public class Department {
     @Basic
     @Column(name = "name")
     private String name;
-    @OneToMany(mappedBy = "departmentByDepartmentid")
+    @OneToMany(mappedBy = "department")
     private Collection<Departmentmanager> departmentmanagersById;
-    @OneToMany(mappedBy = "departmentByDepartmentid")
+    @OneToMany(mappedBy = "department")
     private Collection<Subdepartment> subdepartmentsById;
 
     public Integer getId() {

@@ -37,10 +37,10 @@ public class Promotion {
     private Integer storeid;
     @ManyToOne
     @JoinColumn(name = "subdepartmentid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Subdepartment subdepartmentBySubdepartmentid;
+    private Subdepartment subdepartment;
     @ManyToOne
     @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Store storeByStoreid;
+    private Store store;
 
     public Integer getId() {
         return id;
@@ -150,19 +150,19 @@ public class Promotion {
         return result;
     }
 
-    public Subdepartment getSubdepartmentBySubdepartmentid() {
-        return subdepartmentBySubdepartmentid;
+    public Subdepartment getSubdepartment() {
+        return subdepartment;
     }
 
-    public void setSubdepartmentBySubdepartmentid(Subdepartment subdepartmentBySubdepartmentid) {
-        this.subdepartmentBySubdepartmentid = subdepartmentBySubdepartmentid;
+    public void setSubdepartment(Subdepartment subdepartmentBySubdepartmentid) {
+        this.subdepartment = subdepartmentBySubdepartmentid;
     }
 
-    public Store getStoreByStoreid() {
-        return storeByStoreid;
+    public Store getStore() {
+        return store;
     }
 
-    public void setStoreByStoreid(Store storeByStoreid) {
-        this.storeByStoreid = storeByStoreid;
+    public void setStore(Store storeByStoreid) {
+        this.store = storeByStoreid;
     }
 }

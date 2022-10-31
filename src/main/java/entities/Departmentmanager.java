@@ -23,10 +23,10 @@ public class Departmentmanager {
     private Integer storeid;
     @ManyToOne
     @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Department departmentByDepartmentid;
+    private Department department;
     @ManyToOne
     @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Store storeByStoreid;
+    private Store store;
 
     public Integer getId() {
         return id;
@@ -94,19 +94,19 @@ public class Departmentmanager {
         return result;
     }
 
-    public Department getDepartmentByDepartmentid() {
-        return departmentByDepartmentid;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartmentByDepartmentid(Department departmentByDepartmentid) {
-        this.departmentByDepartmentid = departmentByDepartmentid;
+    public void setDepartment(Department departmentByDepartmentid) {
+        this.department = departmentByDepartmentid;
     }
 
-    public Store getStoreByStoreid() {
-        return storeByStoreid;
+    public Store getStore() {
+        return store;
     }
 
-    public void setStoreByStoreid(Store storeByStoreid) {
-        this.storeByStoreid = storeByStoreid;
+    public void setStore(Store storeByStoreid) {
+        this.store = storeByStoreid;
     }
 }

@@ -16,11 +16,11 @@ public class Subdepartment {
     @Basic
     @Column(name = "departmentid")
     private Integer departmentid;
-    @OneToMany(mappedBy = "subdepartmentBySubdepartmentid")
-    private Collection<Promotion> promotionsById;
+    @OneToMany(mappedBy = "subdepartment")
+    private Collection<Promotion> promotions;
     @ManyToOne
     @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Department departmentByDepartmentid;
+    private Department department;
 
     public Integer getId() {
         return id;
@@ -68,19 +68,19 @@ public class Subdepartment {
         return result;
     }
 
-    public Collection<Promotion> getPromotionsById() {
-        return promotionsById;
+    public Collection<Promotion> getPromotions() {
+        return promotions;
     }
 
-    public void setPromotionsById(Collection<Promotion> promotionsById) {
-        this.promotionsById = promotionsById;
+    public void setPromotions(Collection<Promotion> promotionsById) {
+        this.promotions = promotionsById;
     }
 
-    public Department getDepartmentByDepartmentid() {
-        return departmentByDepartmentid;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDepartmentByDepartmentid(Department departmentByDepartmentid) {
-        this.departmentByDepartmentid = departmentByDepartmentid;
+    public void setDepartment(Department departmentByDepartmentid) {
+        this.department = departmentByDepartmentid;
     }
 }

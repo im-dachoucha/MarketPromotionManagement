@@ -20,7 +20,7 @@ public class Storeadmin {
     private String password;
     @ManyToOne
     @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
-    private Store storeByStoreid;
+    private Store store;
 
     public Integer getId() {
         return id;
@@ -78,11 +78,11 @@ public class Storeadmin {
         return result;
     }
 
-    public Store getStoreByStoreid() {
-        return storeByStoreid;
+    public Store getStore() {
+        return store;
     }
 
-    public void setStoreByStoreid(Store storeByStoreid) {
-        this.storeByStoreid = storeByStoreid;
+    public void setStore(Store storeByStoreid) {
+        this.store = storeByStoreid;
     }
 }
