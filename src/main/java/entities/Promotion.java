@@ -36,10 +36,10 @@ public class Promotion {
     @Column(name = "storeid")
     private Integer storeid;
     @ManyToOne
-    @JoinColumn(name = "subdepartmentid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "subdepartmentid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Subdepartment subdepartmentBySubdepartmentid;
     @ManyToOne
-    @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Store storeByStoreid;
 
     public Integer getId() {

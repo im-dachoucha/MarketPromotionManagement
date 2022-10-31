@@ -21,10 +21,10 @@ public class Departmentmanager {
     @Column(name = "storeid")
     private Integer storeid;
     @ManyToOne
-    @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Department departmentByDepartmentid;
     @ManyToOne
-    @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Store storeByStoreid;
 
     public Integer getId() {

@@ -18,7 +18,7 @@ public class Storeadmin {
     @Column(name = "password")
     private String password;
     @ManyToOne
-    @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "storeid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Store storeByStoreid;
 
     public Integer getId() {

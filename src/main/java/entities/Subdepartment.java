@@ -19,7 +19,7 @@ public class Subdepartment {
     @OneToMany(mappedBy = "subdepartmentBySubdepartmentid")
     private Collection<Promotion> promotionsById;
     @ManyToOne
-    @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false, insertable = false, updatable = false)
     private Department departmentByDepartmentid;
 
     public Integer getId() {
