@@ -3,6 +3,7 @@ package entities;
 import jakarta.persistence.*;
 
 @Entity
+@NamedQuery(name = "DepartmentManager.getByEmail", query = "select dm from Departmentmanager dm where dm.email like ?1")
 public class Departmentmanager {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
