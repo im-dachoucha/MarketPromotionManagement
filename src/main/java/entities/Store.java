@@ -19,7 +19,7 @@ public class Store {
     @Basic
     @Column(name = "email")
     private String email;
-    @OneToMany(mappedBy = "storeByStoreid")
+    @OneToMany(mappedBy = "store")
     private Collection<Departmentmanager> departmentmanagers;
     @OneToMany(mappedBy = "store")
     private Collection<Promotion> promotions;
