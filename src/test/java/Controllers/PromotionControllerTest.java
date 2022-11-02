@@ -1,9 +1,12 @@
 package Controllers;
 
+import Dao.DepartmentManagerDao;
+import entities.Departmentmanager;
 import entities.Promotion;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,5 +39,16 @@ class PromotionControllerTest {
 
         assertNotNull(promotion);
         assertNotNull(promotion.getId());
+    }
+
+    /*
+    * getPromotions tests
+    * */
+    @Test
+    public void getPromotionTest(){
+        Departmentmanager dptmentmanager = new DepartmentManagerDao().get(1);
+        List<Promotion> promotions = PromotionController.getPromotions(dptmentmanager);
+        assert promotions != null;
+        System.out.println(promotions.size());
     }
 }
