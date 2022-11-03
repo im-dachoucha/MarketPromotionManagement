@@ -4,11 +4,10 @@ import Dao.PromotionDao;
 import Dao.StoreDao;
 import entities.Departmentmanager;
 import entities.Promotion;
+import entities.Storeadmin;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.sql.Time;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.List;
@@ -40,7 +39,7 @@ public class PromotionController {
         return promotion;
     }
 
-    public static List<Promotion> getPromotions(Departmentmanager dptManager) {
+    public static List<Promotion> getPromotionsForDptManager(Departmentmanager dptManager) {
 
 //        Time now = (Time) Time.from(Instant.now());
 //
@@ -57,6 +56,18 @@ public class PromotionController {
                 .stream()
                 .filter(promotion -> promotion.getStartdate().compareTo(currentDate) >= 0)
                 .filter(promotion -> promotion.getStoreid().equals(storeId) && promotion.getSubdepartment().getDepartmentid().equals(dptId))
+                .collect(Collectors.toList());
+    }
+
+    public static List<Promotion> getPromotionsForStoreAdmin(Storeadmin storeadmin) {
+
+        Integer storeId = storeadmin.getStoreid();
+
+        return new StoreDao()
+                .get(storeId)
+                .getPromotions()
+                .stream()
+                .filter(promotion -> promotion.getStoreid().equals(storeId))
                 .collect(Collectors.toList());
     }
 }

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -34,14 +35,14 @@
     </div>
     <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
         <form class="bg-white" action="${pageContext.request.contextPath}/store-admin-login" method="post">
-            <%if (request.getAttribute("login error") != null && (boolean) request.getAttribute("login error")) {%>
-            <lottie-player
-                    src="https://assets10.lottiefiles.com/packages/lf20_y8t1nosz.json"
-                    class="cursor-pointer h-24"
-                    speed="1"
-                    autoplay
-            ></lottie-player>
-            <%}%>
+            <c:if test='${login_error}'>
+                <lottie-player
+                        src="https://assets10.lottiefiles.com/packages/lf20_y8t1nosz.json"
+                        class="cursor-pointer h-24"
+                        speed="1"
+                        autoplay>
+                </lottie-player>
+            </c:if>
             <h1 class="text-gray-800 font-bold text-2xl mb-6">
                 Anonymous Market
             </h1>
