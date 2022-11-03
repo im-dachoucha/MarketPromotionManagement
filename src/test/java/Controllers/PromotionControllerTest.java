@@ -47,7 +47,7 @@ class PromotionControllerTest {
     @Test
     public void getPromotionTest(){
         Departmentmanager dptmentmanager = new DepartmentManagerDao().get(1);
-        List<Promotion> promotions = PromotionController.getPromotions(dptmentmanager);
+        List<Promotion> promotions = PromotionController.getPromotionsForDptManager(dptmentmanager);
         assert promotions != null;
         System.out.println(promotions.size());
     }
