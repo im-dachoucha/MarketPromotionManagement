@@ -28,15 +28,13 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("login_error", true);
             request.getRequestDispatcher("StoreAdmin/Login.jsp").forward(request, response);
         }else{
-            List<Promotion> promotions = PromotionController.getPromotionsForStoreAdmin(storeadmin);
-
             HttpSession session = request.getSession();
             session.setAttribute("Store_admin", storeadmin);
-            session.setAttribute("promotions", promotions);
 
             request.setAttribute("login_error", false);
             request.setAttribute("store_admin", storeadmin);
-            request.getRequestDispatcher("StoreAdmin/Dashboard.jsp").forward(request, response);
+
+            response.sendRedirect(request.getContextPath()+"/store-admin/promotions");
         }
     }
 }

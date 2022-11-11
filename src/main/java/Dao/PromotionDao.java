@@ -4,7 +4,7 @@ import entities.Promotion;
 
 import java.util.List;
 
-public class PromotionDao implements DAO<Promotion>{
+public class PromotionDao implements DAO<Promotion> {
     @Override
     public Promotion get(Integer id) {
         return JPA.Utils.Helper.entityManager().find(Promotion.class, id);

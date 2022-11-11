@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -68,6 +69,19 @@ public class PromotionController {
                 .getPromotions()
                 .stream()
                 .filter(promotion -> promotion.getStoreid().equals(storeId))
+                .sorted(Comparator.comparing(Promotion::getId))
                 .collect(Collectors.toList());
+    }
+    public static boolean deletePromotionById(Integer id){
+        try{
+            PromotionDao promotionDao = new PromotionDao();
+            Promotion promotion = promotionDao.get(id);
+            System.out.println(promotion.getId());
+            promotionDao.delete(promotion);
+            return true;
+        }catch(Exception e){
+            e.getStackTrace();
+            return false;
+        }
     }
 }
