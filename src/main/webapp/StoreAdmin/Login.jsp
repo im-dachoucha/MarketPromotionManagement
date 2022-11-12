@@ -34,7 +34,7 @@
         ></div>
     </div>
     <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
-        <form class="bg-white" action="${pageContext.request.contextPath}/store-admin-login" method="post">
+        <form class="bg-white" action="${pageContext.request.contextPath}/store-admin/login" method="post">
             <c:if test='${login_error}'>
                 <lottie-player
                         src="https://assets10.lottiefiles.com/packages/lf20_y8t1nosz.json"

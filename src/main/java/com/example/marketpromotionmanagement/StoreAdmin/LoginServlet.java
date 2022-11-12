@@ -11,12 +11,12 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "LoginServlet", value = "/store-admin-login")
+@WebServlet(name = "LoginServlet", value = "/store-admin/login")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("login_error", false);
-        request.getRequestDispatcher("StoreAdmin/Login.jsp").forward(request, response);
+        request.getRequestDispatcher(request.getContextPath() + "/StoreAdmin/Login.jsp").forward(request, response);
     }
 
     @Override
