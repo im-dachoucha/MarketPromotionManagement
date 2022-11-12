@@ -20,7 +20,7 @@ public class PromotionsServlet extends HttpServlet {
         List<Promotion> promotions = PromotionController.getPromotionsForStoreAdmin(storeadmin);
         request.setAttribute("promotions", promotions);
 
-        request.getRequestDispatcher(request.getContextPath()+"/StoreAdmin/Dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher(request.getContextPath()+"/StoreAdmin/Promotions.jsp").forward(request, response);
     }
 
     @Override
