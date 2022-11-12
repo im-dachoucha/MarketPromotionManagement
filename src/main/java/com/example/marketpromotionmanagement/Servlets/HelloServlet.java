@@ -1,4 +1,4 @@
-package Servlets;
+package com.example.marketpromotionmanagement.Servlets;
 
 import java.io.*;
 

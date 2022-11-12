@@ -1,4 +1,4 @@
-package Servlets.StoreAdmin;
+package com.example.marketpromotionmanagement.Servlets.StoreAdmin;
 
 import com.example.marketpromotionmanagement.Controllers.PromotionController;
 import com.example.marketpromotionmanagement.entities.Promotion;
