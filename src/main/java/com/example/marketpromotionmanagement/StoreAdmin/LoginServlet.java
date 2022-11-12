@@ -1,15 +1,12 @@
 package com.example.marketpromotionmanagement.StoreAdmin;
 
-import Controllers.PromotionController;
 import Controllers.StoreAdminController;
-import entities.Promotion;
 import entities.Storeadmin;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "LoginServlet", value = "/store-admin/login")
 public class LoginServlet extends HttpServlet {
