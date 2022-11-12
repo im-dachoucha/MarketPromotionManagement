@@ -11,30 +11,8 @@
                 class="grid h-[100vh] grid-cols-12"
                 style="grid-template-rows: 4rem 1fr"
         >
-            <nav
-                    class="col-span-full row-span-1 flex items-center justify-between px-9 bg-teal-100"
-            >
-                <h3 class="text-2xl font-bold">Anonymous Market</h3>
-                <lottie-player
-                        src="https://assets7.lottiefiles.com/private_files/lf30_amhtk28o.json"
-                        class="mr-8 h-20 w-24 cursor-pointer"
-                        background="transparent"
-                        speed="1"
-                        loop
-                        autoplay
-                ></lottie-player>
-            </nav>
-            <aside class="col-span-2 bg-teal-50 pt-9">
-                <div class="flex flex-col items-center gap-16">
-                    <div class="flex flex-start"><a class="font-semibold text-xl"
-                                                    href="${pageContext.request.contextPath}/store-admin/promotions"><i
-                            class="mr-2 fa-solid fa-percent"></i> Promotions</a></div>
-                    <div class="flex flex-start"><a class="font-semibold text-xl" href="#"><i
-                            class="mr-2 fa-solid fa-people-roof"></i> Managers</a></div>
-                    <div class="flex flex-start"><a class="font-semibold text-xl" href="#"><i
-                            class="mr-2 fa-solid fa-right-from-bracket"></i> Log out</a></div>
-                </div>
-            </aside>
+            <jsp:include page="inc/Navbar.jsp"/>
+            <jsp:include page="inc/Sidebar.jsp"/>
             <div class="col-span-10">
                 <c:if test="${promotion_error}">
                     asdfljasdlfkjasdflkj
