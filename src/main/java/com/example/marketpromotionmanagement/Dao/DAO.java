@@ -1,4 +1,4 @@
-package Dao;
+package com.example.marketpromotionmanagement.Dao;
 
 import java.util.List;
 

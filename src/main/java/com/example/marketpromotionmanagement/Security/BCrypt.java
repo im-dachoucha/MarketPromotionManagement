@@ -1,4 +1,4 @@
-package Security;
+package com.example.marketpromotionmanagement.Security;
 
 // Copyright (c) 2006 Damien Miller <djm@mindrot.org>
 //

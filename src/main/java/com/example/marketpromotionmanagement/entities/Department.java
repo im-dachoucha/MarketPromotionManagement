@@ -1,4 +1,4 @@
-package entities;
+package com.example.marketpromotionmanagement.entities;
 
 import jakarta.persistence.*;
 

@@ -1,7 +1,7 @@
 package com.example.marketpromotionmanagement.StoreAdmin;
 
-import Controllers.StoreAdminController;
-import entities.Storeadmin;
+import com.example.marketpromotionmanagement.Controllers.StoreAdminController;
+import com.example.marketpromotionmanagement.entities.Storeadmin;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

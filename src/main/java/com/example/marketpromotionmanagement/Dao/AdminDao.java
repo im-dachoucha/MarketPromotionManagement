@@ -1,13 +1,14 @@
-package Dao;
+package com.example.marketpromotionmanagement.Dao;
 
-import entities.Admin;
+import com.example.marketpromotionmanagement.Utils.Helper;
+import com.example.marketpromotionmanagement.entities.Admin;
 
 import java.util.List;
 
 public class AdminDao implements DAO<Admin> {
     @Override
     public Admin get(Integer id) {
-        return JPA.Utils.Helper.entityManager().find(Admin.class, id);
+        return Helper.entityManager().find(Admin.class, id);
     }
 
     @Override

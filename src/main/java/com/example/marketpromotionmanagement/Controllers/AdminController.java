@@ -1,8 +1,9 @@
-package Controllers;
+package com.example.marketpromotionmanagement.Controllers;
 
-import Dao.AdminDao;
-import Security.BCrypt;
-import entities.Admin;
+import com.example.marketpromotionmanagement.Dao.AdminDao;
+import com.example.marketpromotionmanagement.Security.BCrypt;
+import com.example.marketpromotionmanagement.Utils.Helper;
+import com.example.marketpromotionmanagement.entities.Admin;
 import jakarta.persistence.Query;
 
 public class AdminController {
@@ -15,7 +16,7 @@ public class AdminController {
     public static Admin login(String email, String password) {
         try {
             AdminDao adminDao = new AdminDao();
-            Query query = JPA.Utils.Helper.entityManager().createNamedQuery("Admin.getByEmail").setParameter(1, email);
+            Query query = Helper.entityManager().createNamedQuery("Admin.getByEmail").setParameter(1, email);
             Admin admin = (Admin) query.getResultList().get(0);
 
             if(!BCrypt.checkpw(password, admin.getPassword()))

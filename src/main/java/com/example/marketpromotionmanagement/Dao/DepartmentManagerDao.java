@@ -1,13 +1,14 @@
-package Dao;
+package com.example.marketpromotionmanagement.Dao;
 
-import entities.Departmentmanager;
+import com.example.marketpromotionmanagement.Utils.Helper;
+import com.example.marketpromotionmanagement.entities.Departmentmanager;
 
 import java.util.List;
 
 public class DepartmentManagerDao implements DAO<Departmentmanager> {
     @Override
     public Departmentmanager get(Integer id) {
-        return JPA.Utils.Helper.entityManager().find(Departmentmanager.class, id);
+        return Helper.entityManager().find(Departmentmanager.class, id);
     }
 
     @Override
@@ -17,16 +18,16 @@ public class DepartmentManagerDao implements DAO<Departmentmanager> {
 
     @Override
     public void save(Departmentmanager departmentmanager) {
-        JPA.Utils.Helper.executeInsideTransaction(em -> em.persist(departmentmanager));
+        Helper.executeInsideTransaction(em -> em.persist(departmentmanager));
     }
 
     @Override
     public void update(Departmentmanager departmentmanager) {
-        JPA.Utils.Helper.executeInsideTransaction(em -> em.persist(departmentmanager));
+        Helper.executeInsideTransaction(em -> em.persist(departmentmanager));
     }
 
     @Override
     public void delete(Departmentmanager departmentmanager) {
-        JPA.Utils.Helper.executeInsideTransaction(em -> em.persist(departmentmanager));
+        Helper.executeInsideTransaction(em -> em.persist(departmentmanager));
     }
 }

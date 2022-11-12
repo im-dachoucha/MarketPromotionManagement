@@ -1,8 +1,9 @@
 package Controllers;
 
-import Dao.DepartmentManagerDao;
-import entities.Departmentmanager;
-import entities.Promotion;
+import com.example.marketpromotionmanagement.Controllers.PromotionController;
+import com.example.marketpromotionmanagement.Dao.DepartmentManagerDao;
+import com.example.marketpromotionmanagement.entities.Departmentmanager;
+import com.example.marketpromotionmanagement.entities.Promotion;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;

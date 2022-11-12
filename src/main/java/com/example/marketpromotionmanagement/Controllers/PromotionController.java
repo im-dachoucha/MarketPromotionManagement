@@ -1,10 +1,10 @@
-package Controllers;
+package com.example.marketpromotionmanagement.Controllers;
 
-import Dao.PromotionDao;
-import Dao.StoreDao;
-import entities.Departmentmanager;
-import entities.Promotion;
-import entities.Storeadmin;
+import com.example.marketpromotionmanagement.Dao.PromotionDao;
+import com.example.marketpromotionmanagement.Dao.StoreDao;
+import com.example.marketpromotionmanagement.entities.Departmentmanager;
+import com.example.marketpromotionmanagement.entities.Promotion;
+import com.example.marketpromotionmanagement.entities.Storeadmin;
 
 import java.math.BigDecimal;
 import java.sql.Date;

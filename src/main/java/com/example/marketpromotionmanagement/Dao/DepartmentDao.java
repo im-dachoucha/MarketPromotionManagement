@@ -1,6 +1,7 @@
-package Dao;
+package com.example.marketpromotionmanagement.Dao;
 
-import entities.Department;
+import com.example.marketpromotionmanagement.Utils.Helper;
+import com.example.marketpromotionmanagement.entities.Department;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class DepartmentDao implements DAO<Department> {
 
     @Override
     public List<Department> getAll() {
-        return JPA.Utils.Helper.entityManager().createQuery("select d from Department d").getResultList();
+        return Helper.entityManager().createQuery("select d from Department d").getResultList();
     }
 
     @Override

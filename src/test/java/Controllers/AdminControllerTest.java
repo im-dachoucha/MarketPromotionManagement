@@ -1,6 +1,7 @@
 package Controllers;
 
-import entities.Admin;
+import com.example.marketpromotionmanagement.Controllers.AdminController;
+import com.example.marketpromotionmanagement.entities.Admin;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

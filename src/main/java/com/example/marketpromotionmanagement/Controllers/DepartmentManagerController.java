@@ -1,18 +1,18 @@
-package Controllers;
+package com.example.marketpromotionmanagement.Controllers;
 
-import Dao.DepartmentManagerDao;
-import Dao.StoreDao;
-import Security.BCrypt;
-import entities.Departmentmanager;
+import com.example.marketpromotionmanagement.Dao.DepartmentManagerDao;
+import com.example.marketpromotionmanagement.Dao.StoreDao;
+import com.example.marketpromotionmanagement.Security.BCrypt;
+import com.example.marketpromotionmanagement.Utils.Helper;
+import com.example.marketpromotionmanagement.entities.Departmentmanager;
 import jakarta.persistence.Query;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class DepartmentManagerController {
     public static Departmentmanager login(String email, String password) {
         try {
-            Query query = JPA.Utils.Helper.entityManager().createNamedQuery("DepartmentManager.getByEmail").setParameter(1, email);
+            Query query = Helper.entityManager().createNamedQuery("DepartmentManager.getByEmail").setParameter(1, email);
             Departmentmanager departmentmanager = (Departmentmanager) query.getResultList().get(0);
 
             if (!BCrypt.checkpw(password, departmentmanager.getPassword()))

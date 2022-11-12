@@ -1,4 +1,4 @@
-package JPA.Utils;
+package com.example.marketpromotionmanagement.Utils;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

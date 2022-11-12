@@ -5,13 +5,13 @@
              version="3.0">
     <persistence-unit name="default">
 
-        <class>entities.Admin</class>
-        <class>entities.Department</class>
-        <class>entities.Departmentmanager</class>
-        <class>entities.Promotion</class>
-        <class>entities.Store</class>
-        <class>entities.Storeadmin</class>
-        <class>entities.Subdepartment</class>
+        <class>com.example.marketpromotionmanagement.entities.Admin</class>
+        <class>com.example.marketpromotionmanagement.entities.Department</class>
+        <class>com.example.marketpromotionmanagement.entities.Departmentmanager</class>
+        <class>com.example.marketpromotionmanagement.entities.Promotion</class>
+        <class>com.example.marketpromotionmanagement.entities.Store</class>
+        <class>com.example.marketpromotionmanagement.entities.Storeadmin</class>
+        <class>com.example.marketpromotionmanagement.entities.Subdepartment</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:32768/market_promotion"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>

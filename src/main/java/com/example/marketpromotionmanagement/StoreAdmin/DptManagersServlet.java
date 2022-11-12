@@ -1,12 +1,10 @@
 package com.example.marketpromotionmanagement.StoreAdmin;
 
-import Controllers.DepartmentManagerController;
-import Dao.DepartmentDao;
-import Dao.SubDepartmentDao;
-import entities.Department;
-import entities.Departmentmanager;
-import entities.Storeadmin;
-import entities.Subdepartment;
+import com.example.marketpromotionmanagement.Controllers.DepartmentManagerController;
+import com.example.marketpromotionmanagement.Dao.DepartmentDao;
+import com.example.marketpromotionmanagement.entities.Department;
+import com.example.marketpromotionmanagement.entities.Departmentmanager;
+import com.example.marketpromotionmanagement.entities.Storeadmin;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
