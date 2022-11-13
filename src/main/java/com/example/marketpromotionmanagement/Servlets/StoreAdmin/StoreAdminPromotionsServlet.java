@@ -1,8 +1,10 @@
 package com.example.marketpromotionmanagement.Servlets.StoreAdmin;
 
 import com.example.marketpromotionmanagement.Controllers.PromotionController;
+import com.example.marketpromotionmanagement.Dao.SubDepartmentDao;
 import com.example.marketpromotionmanagement.entities.Promotion;
 import com.example.marketpromotionmanagement.entities.Storeadmin;
+import com.example.marketpromotionmanagement.entities.Subdepartment;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -18,7 +20,9 @@ public class StoreAdminPromotionsServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Storeadmin storeadmin = (Storeadmin) session.getAttribute("store_admin");
         List<Promotion> promotions = PromotionController.getPromotionsForStoreAdmin(storeadmin);
+        List<Subdepartment> subDpts = new SubDepartmentDao().getAll();
         request.setAttribute("promotions", promotions);
+        request.setAttribute("subDpts", subDpts);
 
         request.getRequestDispatcher(request.getContextPath()+"/StoreAdmin/Promotions.jsp").forward(request, response);
     }
