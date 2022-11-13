@@ -17,7 +17,7 @@ public class StoreAdminDptManagersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Storeadmin storeadmin = (Storeadmin) session.getAttribute("Store_admin");
+        Storeadmin storeadmin = (Storeadmin) session.getAttribute("store_admin");
 
         List<Departmentmanager> dptManagers = DepartmentManagerController.getStoreDptManagers(storeadmin.getStoreid());
         session.setAttribute("managers", dptManagers);
@@ -47,7 +47,7 @@ public class StoreAdminDptManagersServlet extends HttpServlet {
         Integer dptId = Integer.valueOf(request.getParameter("department"));
 
         HttpSession session = request.getSession();
-        Storeadmin storeadmin = (Storeadmin) session.getAttribute("Store_admin");
+        Storeadmin storeadmin = (Storeadmin) session.getAttribute("store_admin");
 
         Departmentmanager departmentmanager = DepartmentManagerController.save(email, password, dptId, storeadmin.getStoreid());
         if(departmentmanager == null || departmentmanager.getId() == null)

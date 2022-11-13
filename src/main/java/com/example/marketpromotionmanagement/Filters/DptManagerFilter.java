@@ -8,17 +8,17 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 
-@WebFilter({"/store-admin/*"})
-public class StoreAdminFilter implements Filter {
+@WebFilter({"/department-manager/*"})
+public class DptManagerFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws ServletException, IOException {
         HttpSession session = ((HttpServletRequest) request).getSession();
         String url = ((HttpServletRequest) request).getServletPath();
-        if (url.equals("/store-admin/login")) {
+        if (url.equals("/department-manager/login")) {
             chain.doFilter(request, response);
         } else {
-            if (session.getAttribute("store_admin") == null)
-                ((HttpServletResponse) response).sendRedirect("/store-admin/login");
+            if (session.getAttribute("dpt_manager") == null)
+                ((HttpServletResponse) response).sendRedirect("/department-manager/login");
             else
                 chain.doFilter(request, response);
         }

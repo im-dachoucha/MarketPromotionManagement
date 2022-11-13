@@ -55,8 +55,9 @@ public class PromotionController {
                 .get(storeId)
                 .getPromotions()
                 .stream()
-                .filter(promotion -> promotion.getStartdate().compareTo(currentDate) >= 0)
+                .filter(promotion -> currentDate.after(promotion.getStartdate()) || currentDate.equals(promotion.getStartdate()))
                 .filter(promotion -> promotion.getStoreid().equals(storeId) && promotion.getSubdepartment().getDepartmentid().equals(dptId))
+                .filter(promotion -> promotion.getState().equals("pending"))
                 .collect(Collectors.toList());
     }
 
@@ -72,14 +73,44 @@ public class PromotionController {
                 .sorted(Comparator.comparing(Promotion::getId))
                 .collect(Collectors.toList());
     }
-    public static boolean deletePromotionById(Integer id){
-        try{
+
+    public static boolean deletePromotionById(Integer id) {
+        try {
             PromotionDao promotionDao = new PromotionDao();
             Promotion promotion = promotionDao.get(id);
             System.out.println(promotion.getId());
             promotionDao.delete(promotion);
             return true;
-        }catch(Exception e){
+        } catch (Exception e) {
+            e.getStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean refuse(Integer promoId) {
+        try {
+            PromotionDao promotionDao = new PromotionDao();
+            Promotion promotion = promotionDao.get(promoId);
+            if (!promotion.getState().equals("pending"))
+                return false;
+            promotion.setState("refused");
+            promotionDao.update(promotion);
+            return true;
+        } catch (Exception e) {
+            e.getStackTrace();
+            return false;
+        }
+    }
+    public static boolean accept(Integer promoId) {
+        try {
+            PromotionDao promotionDao = new PromotionDao();
+            Promotion promotion = promotionDao.get(promoId);
+            if (!promotion.getState().equals("pending"))
+                return false;
+            promotion.setState("accepted");
+            promotionDao.update(promotion);
+            return true;
+        } catch (Exception e) {
             e.getStackTrace();
             return false;
         }

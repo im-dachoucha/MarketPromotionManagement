@@ -9,6 +9,7 @@
 </h1>
 <br/>
 <a href="${pageContext.request.contextPath}/store-admin/login">Store Admin</a>
+<a href="${pageContext.request.contextPath}/department-manager/login">Department Manager</a>
 <a href="hello-servlet">Hello Servlet</a>
 </body>
 </html>

@@ -16,7 +16,7 @@ public class StoreAdminPromotionsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        Storeadmin storeadmin = (Storeadmin) session.getAttribute("Store_admin");
+        Storeadmin storeadmin = (Storeadmin) session.getAttribute("store_admin");
         List<Promotion> promotions = PromotionController.getPromotionsForStoreAdmin(storeadmin);
         request.setAttribute("promotions", promotions);
 
@@ -52,7 +52,7 @@ public class StoreAdminPromotionsServlet extends HttpServlet {
         String endDate = request.getParameter("endDate");
         BigDecimal discount = BigDecimal.valueOf(Double.parseDouble(request.getParameter("discount")));
         Integer subDptId = Integer.parseInt(request.getParameter("subDepartment"));
-        Integer storeId = ((Storeadmin) session.getAttribute("Store_admin")).getStoreid();
+        Integer storeId = ((Storeadmin) session.getAttribute("store_admin")).getStoreid();
         Promotion promotion = PromotionController.save(description, startDate, endDate, discount, subDptId, storeId);
         if (promotion == null || promotion.getId() == null)
             request.setAttribute("promotion_error", true);

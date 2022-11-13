@@ -1,6 +1,8 @@
-package com.example.marketpromotionmanagement.Servlets.StoreAdmin;
+package com.example.marketpromotionmanagement.Servlets.DepartmentManager;
 
+import com.example.marketpromotionmanagement.Controllers.DepartmentManagerController;
 import com.example.marketpromotionmanagement.Controllers.StoreAdminController;
+import com.example.marketpromotionmanagement.entities.Departmentmanager;
 import com.example.marketpromotionmanagement.entities.Storeadmin;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -8,22 +10,22 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 
-@WebServlet({"/store-admin/login", "/store-admin/logout"})
-public class StoreAdminLoginServlet extends HttpServlet {
+@WebServlet({"/department-manager/login", "/department-manager/logout"})
+public class DptManagerLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("login_error", false);
-        request.getRequestDispatcher(request.getContextPath() + "/StoreAdmin/Login.jsp").forward(request, response);
+        request.getRequestDispatcher(request.getContextPath() + "/DptManager/Login.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String url = request.getServletPath();
-        switch (url) {
-            case "/store-admin/login":
+        switch(url){
+            case "/department-manager/login":
                 login(request, response);
                 break;
-            case "/store-admin/logout":
+            case "/department-manager/logout":
                 logout(request, response);
                 break;
         }
@@ -32,25 +34,23 @@ public class StoreAdminLoginServlet extends HttpServlet {
     private void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        Storeadmin storeadmin = StoreAdminController.login(email, password);
-        if (storeadmin == null) {
+        Departmentmanager departmentmanager = DepartmentManagerController.login(email, password);
+        if(departmentmanager == null){
             request.setAttribute("login_error", true);
-            request.getRequestDispatcher(request.getContextPath() + "/StoreAdmin/Login.jsp").forward(request, response);
-        } else {
+            request.getRequestDispatcher(request.getContextPath() + "/DptManager/Login.jsp").forward(request, response);
+        }else{
             HttpSession session = request.getSession();
-            session.setAttribute("store_admin", storeadmin);
+            session.setAttribute("dpt_manager", departmentmanager);
 
             request.setAttribute("login_error", false);
-            request.setAttribute("store_admin", storeadmin);
 
-            response.sendRedirect(request.getContextPath() + "/store-admin/promotions");
+            response.sendRedirect(request.getContextPath()+"/department-manager/promotions");
         }
     }
-
-    private void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
-        session.removeAttribute("store_admin");
+        session.removeAttribute("dpt_manager");
 
-        response.sendRedirect(request.getContextPath() + "/store-admin/login");
+        response.sendRedirect(request.getContextPath()+"/department-manager/login");
     }
 }
