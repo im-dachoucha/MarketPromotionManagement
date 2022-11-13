@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @WebServlet({"/store-admin/promotions", "/store-admin/delete-promotion"})
-public class PromotionsServlet extends HttpServlet {
+public class StoreAdminPromotionsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();

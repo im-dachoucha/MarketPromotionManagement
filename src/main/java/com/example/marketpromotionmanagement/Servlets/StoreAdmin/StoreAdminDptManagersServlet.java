@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet({"/store-admin/managers", "/store-admin/delete-manager"})
-public class DptManagersServlet extends HttpServlet {
+public class StoreAdminDptManagersServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
