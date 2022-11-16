@@ -13,7 +13,7 @@
         >
             <jsp:include page="inc/Navbar.jsp"/>
             <jsp:include page="inc/Sidebar.jsp"/>
-            <div class="col-span-10">
+            <div class="col-span-11 lg:col-span-10">
                 <!-- component -->
                 <div class="bg-white p-8 rounded-md w-full">
                     <div class=" flex items-center justify-start pb-6">
