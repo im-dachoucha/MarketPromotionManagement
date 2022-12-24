@@ -25,7 +25,7 @@ public class StoreAdminDptManagersServlet extends HttpServlet {
         List<Department> departments = new DepartmentDao().getAll();
         session.setAttribute("departments", departments);
 
-        request.getRequestDispatcher(request.getContextPath()+"/StoreAdmin/Managers.jsp").forward(request, response);
+        request.getRequestDispatcher("/StoreAdmin/Managers.jsp").forward(request, response);
     }
 
     @Override
@@ -50,12 +50,13 @@ public class StoreAdminDptManagersServlet extends HttpServlet {
         Storeadmin storeadmin = (Storeadmin) session.getAttribute("store_admin");
 
         Departmentmanager departmentmanager = DepartmentManagerController.save(email, password, dptId, storeadmin.getStoreid());
-        if(departmentmanager == null || departmentmanager.getId() == null)
+        if (departmentmanager == null || departmentmanager.getId() == null)
             session.setAttribute("manager_error", true);
 
-        response.sendRedirect(request.getContextPath()+"/store-admin/managers");
+        response.sendRedirect(request.getContextPath() + "/store-admin/managers");
     }
+
     private static void deleteManager(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.sendRedirect(request.getContextPath()+"/store-admin/managers");
+        response.sendRedirect(request.getContextPath() + "/store-admin/managers");
     }
 }

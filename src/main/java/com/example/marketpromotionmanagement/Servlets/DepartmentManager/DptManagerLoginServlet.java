@@ -15,7 +15,7 @@ public class DptManagerLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("login_error", false);
-        request.getRequestDispatcher(request.getContextPath() + "/DptManager/Login.jsp").forward(request, response);
+        request.getRequestDispatcher("/DptManager/Login.jsp").forward(request, response);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class DptManagerLoginServlet extends HttpServlet {
         Departmentmanager departmentmanager = DepartmentManagerController.login(email, password);
         if(departmentmanager == null){
             request.setAttribute("login_error", true);
-            request.getRequestDispatcher(request.getContextPath() + "/DptManager/Login.jsp").forward(request, response);
+            request.getRequestDispatcher("/DptManager/Login.jsp").forward(request, response);
         }else{
             HttpSession session = request.getSession();
             session.setAttribute("dpt_manager", departmentmanager);

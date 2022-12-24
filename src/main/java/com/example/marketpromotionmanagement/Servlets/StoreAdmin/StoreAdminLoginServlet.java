@@ -13,7 +13,7 @@ public class StoreAdminLoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("login_error", false);
-        request.getRequestDispatcher(request.getContextPath() + "/StoreAdmin/Login.jsp").forward(request, response);
+        request.getRequestDispatcher("/StoreAdmin/Login.jsp").forward(request, response);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class StoreAdminLoginServlet extends HttpServlet {
         Storeadmin storeadmin = StoreAdminController.login(email, password);
         if (storeadmin == null) {
             request.setAttribute("login_error", true);
-            request.getRequestDispatcher(request.getContextPath() + "/StoreAdmin/Login.jsp").forward(request, response);
+            request.getRequestDispatcher("/StoreAdmin/Login.jsp").forward(request, response);
         } else {
             HttpSession session = request.getSession();
             session.setAttribute("store_admin", storeadmin);

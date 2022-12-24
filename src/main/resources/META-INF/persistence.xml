@@ -13,10 +13,11 @@
         <class>com.example.marketpromotionmanagement.entities.Storeadmin</class>
         <class>com.example.marketpromotionmanagement.entities.Subdepartment</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:32768/market_promotion"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://app-db/market_promotion"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.connection.username" value="postgres"/>
             <property name="hibernate.connection.password" value="123"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

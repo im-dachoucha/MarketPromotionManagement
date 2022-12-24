@@ -20,7 +20,7 @@ public class DptManagerPromotionsServlet extends HttpServlet {
         List<Promotion> promotions = PromotionController.getPromotionsForDptManager(departmentmanager);
         request.setAttribute("promotions", promotions);
 
-        request.getRequestDispatcher(request.getContextPath() + "/DptManager/Promotions.jsp").forward(request, response);
+        request.getRequestDispatcher("/DptManager/Promotions.jsp").forward(request, response);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class DptManagerPromotionsServlet extends HttpServlet {
                 acceptPromotion(request, response);
                 break;
         }
-        response.sendRedirect("/department-manager/promotions");
+        response.sendRedirect(request.getContextPath() + "/department-manager/promotions");
     }
 
     private void refusePromotion(HttpServletRequest request, HttpServletResponse response) {

@@ -24,7 +24,7 @@ public class StoreAdminPromotionsServlet extends HttpServlet {
         request.setAttribute("promotions", promotions);
         request.setAttribute("subDpts", subDpts);
 
-        request.getRequestDispatcher(request.getContextPath()+"/StoreAdmin/Promotions.jsp").forward(request, response);
+        request.getRequestDispatcher("/StoreAdmin/Promotions.jsp").forward(request, response);
     }
 
     @Override
@@ -44,9 +44,9 @@ public class StoreAdminPromotionsServlet extends HttpServlet {
         boolean ok = PromotionController.deletePromotionById(Integer.valueOf(request.getParameter("promoId")));
         System.out.println(request.getParameter("promoId"));
         System.out.println(ok);
-        if(!ok)
+        if (!ok)
             request.setAttribute("promotion_error", true);
-        response.sendRedirect(request.getContextPath()+"/store-admin/promotions");
+        response.sendRedirect(request.getContextPath() + "/store-admin/promotions");
     }
 
     private void savePromotions(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -61,6 +61,6 @@ public class StoreAdminPromotionsServlet extends HttpServlet {
         if (promotion == null || promotion.getId() == null)
             request.setAttribute("promotion_error", true);
 
-        response.sendRedirect(request.getContextPath()+"/store-admin/promotions");
+        response.sendRedirect(request.getContextPath() + "/store-admin/promotions");
     }
 }
